@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEAM MBOSSÉ 221 — Événementiel, Culture, Sport &amp; Impact Social</title>
+<meta name="description" content="Team MBOSSÉ 221 est une communauté engagée dans l'événementiel, la culture, le sport, l'éducation, la solidarité et le développement local au Sénégal.">
+<meta property="og:title" content="TEAM MBOSSÉ 221">
+<meta property="og:description" content="Ensemble pour la culture, l'événementiel et l'impact social.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<style>
+  :root{
+    --ink:#141915;
+    --ink-soft:#1B2119;
+    --ink-softer:#232A21;
+    --sand:#F1E4C2;
+    --sand-2:#E7D6A5;
+    --gold:#E7A83B;
+    --clay:#C1450F;
+    --teal:#2C7A5E;
+    --ivory:#F7F2E4;
+    --line:rgba(247,242,228,0.14);
+    --line-strong:rgba(247,242,228,0.28);
+    --font-display:'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+    --font-body:'Manrope', 'Segoe UI', system-ui, sans-serif;
+  }
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#141915; --ivory:#F7F2E4;
+    }
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--ivory);
+    font-family:var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 clamp(1.25rem, 4vw, 2.5rem);
+  }
+  h1,h2,h3,h4{font-family:var(--font-display); font-weight:700; line-height:1.05; letter-spacing:-0.01em;}
+  section{position:relative;}
+  .section-pad{padding:clamp(4rem,9vw,7.5rem) 0;}
+  .kicker{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:0.8rem;
+    color:var(--gold);
+    letter-spacing:0.02em;
+    margin-bottom:0.9rem;
+  }
+  .h-section{
+    font-size:clamp(2rem, 4.2vw, 3.1rem);
+    max-width:18ch;
+    margin-bottom:1.1rem;
+  }
+  .lede{
+    font-size:clamp(1rem,1.6vw,1.2rem);
+    color:rgba(247,242,228,0.75);
+    max-width:56ch;
+  }
+  button{font-family:inherit; cursor:pointer;}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(20,25,21,0.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px; margin:0 auto;
+    padding:0 clamp(1.25rem,4vw,2.5rem);
+    height:72px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .wordmark{
+    font-family:var(--font-display); font-weight:800;
+    font-size:1.05rem; letter-spacing:0.01em;
+    display:flex; align-items:center; gap:0.55rem;
+  }
+  .wordmark .dot{
+    width:9px; height:9px; border-radius:50%;
+    background:var(--clay);
+    box-shadow:0 0 0 4px rgba(193,69,15,0.22);
+  }
+  nav.links{display:flex; gap:2rem; font-size:0.92rem; font-weight:600;}
+  nav.links a{
+    opacity:0.82; text-decoration:none; position:relative; padding:0.3rem 0;
+  }
+  nav.links a:hover{opacity:1;}
+  nav.links a::after{
+    content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px;
+    background:var(--gold); transition:width .25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:var(--gold); color:var(--ink);
+    font-weight:700; font-size:0.86rem;
+    padding:0.62rem 1.15rem; border-radius:100px;
+    text-decoration:none;
+  }
+  .burger{
+    display:none; background:none; border:0; color:var(--ivory);
+    width:40px; height:40px; align-items:center; justify-content:center;
+  }
+  .burger svg{width:22px; height:22px;}
+  .mobile-panel{
+    display:none; position:fixed; inset:72px 0 0 0; z-index:99;
+    background:var(--ink); padding:2rem clamp(1.25rem,4vw,2.5rem);
+    flex-direction:column; gap:1.4rem;
+  }
+  .mobile-panel.open{display:flex;}
+  .mobile-panel a{
+    font-family:var(--font-display); font-size:1.5rem; font-weight:700;
+    text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:1rem;
+  }
+  @media (max-width: 860px){
+    nav.links, .nav-cta{display:none;}
+    .burger{display:flex;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:calc(72px + clamp(3rem,7vw,5.5rem)) 0 clamp(3rem,7vw,5rem);
+    position:relative;
+    background:
+      radial-gradient(circle at 82% -10%, rgba(231,168,59,0.22), transparent 55%),
+      radial-gradient(circle at -5% 60%, rgba(44,122,94,0.28), transparent 50%),
+      var(--ink);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:clamp(2rem,5vw,4rem);
+    align-items:center;
+  }
+  .eyebrow-row{
+    display:flex; align-items:center; gap:0.6rem; margin-bottom:1.6rem;
+    font-size:0.82rem; font-weight:700; color:var(--sand-2);
+  }
+  .eyebrow-row .line{width:28px; height:2px; background:var(--clay);}
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 4.6rem);
+    letter-spacing:-0.02em;
+  }
+  .hero h1 .accent{color:var(--gold);}
+  .hero p.tag{
+    font-size:clamp(1.05rem,2vw,1.35rem);
+    color:rgba(247,242,228,0.8);
+    margin:1.4rem 0 2.2rem;
+    max-width:42ch;
+  }
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:0.85rem;}
+  .btn{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    padding:0.85rem 1.5rem; border-radius:100px;
+    font-weight:700; font-size:0.94rem; text-decoration:none;
+    border:1px solid transparent;
+    transition:transform .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-solid{background:var(--gold); color:var(--ink);}
+  .btn-outline{border-color:var(--line-strong); color:var(--ivory);}
+  .btn-clay{background:var(--clay); color:var(--ivory);}
+  .btn-ghost{color:var(--ivory); text-decoration:underline; text-underline-offset:4px;}
+
+  .hero-art{
+    position:relative; aspect-ratio:1/1;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-art svg{width:100%; height:100%;}
+
+  .stat-row{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:1.5rem; margin-top:clamp(3rem,6vw,4.5rem);
+    padding-top:clamp(2rem,4vw,2.8rem);
+    border-top:1px solid var(--line);
+  }
+  .stat b{
+    display:block; font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.2rem);
+    color:var(--gold); font-weight:700;
+  }
+  .stat span{font-size:0.85rem; color:rgba(247,242,228,0.65);}
+
+  /* ---------- QUI SOMMES-NOUS ---------- */
+  .about{background:var(--sand); color:var(--ink);}
+  .about .kicker{color:var(--clay);}
+  .about-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4rem);
+    align-items:center;
+  }
+  .about-copy p{margin-top:1.1rem; color:rgba(20,25,21,0.78); font-size:1.02rem;}
+  .about-visual{
+    aspect-ratio:4/3; border-radius:22px; overflow:hidden;
+    background:linear-gradient(155deg, var(--teal), var(--ink));
+    position:relative;
+  }
+  .about-visual svg{width:100%; height:100%;}
+  @media (max-width:860px){
+    .about-grid{grid-template-columns:1fr;}
+    .about-visual{order:-1;}
+  }
+
+  /* values */
+  .values-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    margin-top:clamp(2.5rem,5vw,3.5rem);
+    background:rgba(20,25,21,0.14);
+    border:1px solid rgba(20,25,21,0.14);
+    border-radius:18px; overflow:hidden;
+  }
+  .value-card{
+    background:var(--sand); padding:2rem 1.7rem;
+    transition:background .2s ease;
+  }
+  .value-card:hover{background:var(--sand-2);}
+  .value-card .vi{
+    width:42px; height:42px; margin-bottom:1.1rem;
+    color:var(--clay);
+  }
+  .value-card h3{font-size:1.08rem; margin-bottom:0.5rem; color:var(--ink);}
+  .value-card p{font-size:0.92rem; color:rgba(20,25,21,0.7);}
+  @media (max-width:760px){ .values-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .values-grid{grid-template-columns:1fr;} }
+
+  /* ---------- OBJECTIFS ---------- */
+  .goals{background:var(--ink);}
+  .goals-list{margin-top:clamp(2.5rem,5vw,3.5rem); display:flex; flex-direction:column;}
+  .goal-row{
+    display:grid; grid-template-columns:90px 1fr; gap:1.6rem;
+    padding:2rem 0; border-top:1px solid var(--line);
+  }
+  .goal-row:last-child{border-bottom:1px solid var(--line);}
+  .goal-num{font-family:var(--font-display); font-size:1.6rem; color:var(--gold); font-weight:700;}
+  .goal-row h3{font-size:1.25rem; margin-bottom:0.5rem;}
+  .goal-row p{color:rgba(247,242,228,0.72); max-width:60ch;}
+  @media (max-width:640px){ .goal-row{grid-template-columns:1fr;} }
+
+  /* ---------- MISSIONS ---------- */
+  .missions{background:var(--ink-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .mission-cols{
+    display:grid; grid-template-columns:1fr 1fr; gap:clamp(1.5rem,4vw,2.5rem);
+    margin-top:clamp(2.5rem,5vw,3.5rem);
+  }
+  .mission-col{
+    border:1px solid var(--line-strong); border-radius:20px;
+    padding:clamp(1.7rem,3vw,2.4rem);
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  }
+  .mission-col.clay-top{border-top:3px solid var(--clay);}
+  .mission-col.teal-top{border-top:3px solid var(--teal);}
+  .mission-col h3{font-size:1.4rem; margin-bottom:1.3rem;}
+  .mission-col ul{list-style:none;}
+  .mission-col.clay-top li{
+    padding:0.6rem 0; border-bottom:1px dashed var(--line);
+    font-size:0.96rem; color:rgba(247,242,228,0.82);
+  }
+  .mission-col.clay-top li:last-child{border-bottom:none;}
+  .mission-sub{margin-top:1.6rem; padding-top:1.4rem; border-top:1px solid var(--line);}
+  .mission-sub h4{font-size:1rem; color:var(--gold); margin-bottom:0.35rem;}
+  .mission-sub p{font-size:0.93rem; color:rgba(247,242,228,0.72); margin-bottom:1.2rem;}
+  .mission-sub:last-child p{margin-bottom:0;}
+  @media (max-width:820px){ .mission-cols{grid-template-columns:1fr;} }
+
+  /* ---------- REGLEMENT ---------- */
+  .rules{background:var(--ink);}
+  .rules-list{margin-top:clamp(2.5rem,5vw,3.5rem); display:flex; flex-direction:column; gap:0.7rem;}
+  details.rule{
+    border:1px solid var(--line-strong); border-radius:14px;
+    background:var(--ink-soft); overflow:hidden;
+  }
+  details.rule summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:1.25rem 1.5rem;
+    font-family:var(--font-display); font-weight:600; font-size:1.05rem;
+  }
+  details.rule summary::-webkit-details-marker{display:none;}
+  details.rule summary .chev{
+    width:20px; height:20px; flex:none; color:var(--gold);
+    transition:transform .25s ease;
+  }
+  details.rule[open] summary .chev{transform:rotate(180deg);}
+  .rule-body{padding:0 1.5rem 1.6rem; color:rgba(247,242,228,0.78); font-size:0.95rem;}
+  .rule-body h4{font-family:var(--font-body); color:var(--gold); font-size:0.9rem; margin:1.1rem 0 0.4rem;}
+  .rule-body h4:first-child{margin-top:0;}
+  .rule-body ul{padding-left:1.15rem; margin-top:0.3rem;}
+  .rule-body li{margin-bottom:0.35rem;}
+  .rule-body p{margin-bottom:0.5rem;}
+
+  /* ---------- BUREAU ---------- */
+  .bureau{background:var(--sand); color:var(--ink); border-top:1px solid rgba(20,25,21,0.1);}
+  .bureau .kicker{color:var(--clay);}
+  .tier-label{
+    font-family:var(--font-display); font-weight:700; font-size:0.85rem;
+    text-transform:none; color:var(--clay);
+    margin:clamp(2.4rem,4vw,3rem) 0 1.1rem;
+  }
+  .tier-label:first-of-type{margin-top:clamp(2.5rem,5vw,3.5rem);}
+  .bureau-grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:1rem;
+  }
+  .member-card{
+    background:var(--ivory); border-radius:16px; padding:1.4rem;
+    display:flex; gap:0.9rem; align-items:center;
+    border:1px solid rgba(20,25,21,0.08);
+  }
+  .avatar{
+    width:52px; height:52px; border-radius:50%; flex:none;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-weight:700; font-size:1rem;
+    color:var(--ivory);
+  }
+  .member-card .name{font-weight:700; font-size:0.98rem;}
+  .member-card .role{font-size:0.82rem; color:var(--clay); font-weight:600;}
+  .member-card .loc{font-size:0.8rem; color:rgba(20,25,21,0.55);}
+
+  /* ---------- GALERIE ---------- */
+  .gallery{background:var(--ink);}
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0.9rem;
+    margin-top:clamp(2.5rem,5vw,3.5rem);
+  }
+  .gallery-tile{
+    aspect-ratio:1/1; border-radius:16px; position:relative; overflow:hidden;
+    display:flex; align-items:flex-end; padding:1.1rem;
+  }
+  .gallery-tile span{
+    font-family:var(--font-display); font-weight:700; font-size:1rem;
+    position:relative; z-index:2;
+  }
+  .gallery-tile::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(0,0,0,0.55), transparent 60%);
+  }
+  .gallery-note{
+    margin-top:1.4rem; font-size:0.85rem; color:rgba(247,242,228,0.55);
+  }
+  @media (max-width:760px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
+
+  /* ---------- SOCIAL ---------- */
+  .social{
+    background:linear-gradient(120deg, var(--clay), #8f3308);
+    color:var(--ivory);
+  }
+  .social-inner{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+    gap:2rem;
+  }
+  .social h2{font-size:clamp(1.7rem,3.4vw,2.4rem); max-width:16ch;}
+  .social-icons{display:flex; gap:0.8rem;}
+  .social-icons a{
+    width:52px; height:52px; border-radius:50%; border:1px solid rgba(247,242,228,0.35);
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none;
+  }
+  .social-icons a svg{width:22px; height:22px;}
+  .social-icons a.soon{opacity:0.4; pointer-events:none;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--ink-soft); border-top:1px solid var(--line);}
+  .contact-grid{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:clamp(2rem,5vw,3.5rem);
+  }
+  .contact-info .item{
+    display:flex; gap:0.9rem; align-items:flex-start; margin-bottom:1.4rem;
+  }
+  .contact-info .ic{
+    width:38px; height:38px; border-radius:10px; flex:none;
+    background:rgba(231,168,59,0.14); color:var(--gold);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .contact-info .ic svg{width:18px; height:18px;}
+  .contact-info h4{font-size:0.98rem; margin-bottom:0.2rem;}
+  .contact-info p{font-size:0.9rem; color:rgba(247,242,228,0.68);}
+  form.cform{
+    background:var(--ink); border:1px solid var(--line-strong);
+    border-radius:20px; padding:clamp(1.6rem,3vw,2.2rem);
+  }
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:1rem;}
+  .field{margin-bottom:1.05rem;}
+  .field label{display:block; font-size:0.82rem; font-weight:700; margin-bottom:0.4rem; color:var(--sand-2);}
+  .field input, .field select, .field textarea{
+    width:100%; background:var(--ink-soft); border:1px solid var(--line-strong);
+    border-radius:10px; padding:0.75rem 0.9rem; color:var(--ivory);
+    font-family:inherit; font-size:0.94rem;
+  }
+  .field textarea{resize:vertical; min-height:100px;}
+  .field input:focus, .field select:focus, .field textarea:focus{
+    border-color:var(--gold); outline:none;
+  }
+  .cform .btn{width:100%; justify-content:center; margin-top:0.4rem;}
+  .form-note{font-size:0.78rem; color:rgba(247,242,228,0.5); margin-top:0.8rem; text-align:center;}
+  @media (max-width:860px){ .contact-grid{grid-template-columns:1fr;} .form-row{grid-template-columns:1fr;} }
+
+  /* ---------- QR ---------- */
+  .qr-section{background:var(--sand); color:var(--ink);}
+  .qr-box{
+    display:grid; grid-template-columns:auto 1fr; gap:clamp(2rem,4vw,3rem);
+    align-items:center;
+    background:var(--ivory); border-radius:22px; padding:clamp(1.8rem,4vw,2.6rem);
+    border:1px solid rgba(20,25,21,0.1);
+  }
+  #qr-canvas-wrap{
+    width:172px; height:172px; background:#fff; border-radius:14px;
+    display:flex; align-items:center; justify-content:center; padding:10px;
+    box-shadow:0 12px 30px rgba(20,25,21,0.14);
+  }
+  .qr-actions{display:flex; gap:0.7rem; margin-top:1.2rem; flex-wrap:wrap;}
+  .btn-dark{background:var(--ink); color:var(--ivory);}
+  @media (max-width:640px){ .qr-box{grid-template-columns:1fr; text-align:center;} #qr-canvas-wrap{margin:0 auto;} .qr-actions{justify-content:center;} }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink); border-top:1px solid var(--line); padding:clamp(2.5rem,5vw,3.5rem) 0 2rem;}
+  .footer-top{
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:2.5rem;
+    padding-bottom:2.2rem; border-bottom:1px solid var(--line);
+  }
+  footer .wordmark{font-size:1.2rem;}
+  footer .tagline{color:rgba(247,242,228,0.6); margin-top:0.6rem; max-width:32ch; font-size:0.92rem;}
+  .footer-links{display:flex; gap:clamp(2.5rem,6vw,5rem); flex-wrap:wrap;}
+  .footer-links h5{font-size:0.78rem; color:var(--sand-2); margin-bottom:0.9rem;}
+  .footer-links a{
+    display:block; text-decoration:none; color:rgba(247,242,228,0.72);
+    font-size:0.92rem; margin-bottom:0.65rem;
+  }
+  .footer-links a:hover{color:var(--gold);}
+  .footer-bottom{
+    padding-top:1.6rem; font-size:0.8rem; color:rgba(247,242,228,0.45);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.8rem;
+  }
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed; right:1.3rem; bottom:1.3rem; z-index:90;
+    width:56px; height:56px; border-radius:50%;
+    background:#25D366; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px rgba(0,0,0,0.35); text-decoration:none;
+  }
+  .wa-float svg{width:28px; height:28px; fill:#fff;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important; animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#accueil" class="wordmark"><span class="dot"></span>TEAM MBOSSÉ 221</a>
+    <nav class="links">
+      <a href="#accueil">Accueil</a>
+      <a href="#team">La Team</a>
+      <a href="#objectifs">Objectifs</a>
+      <a href="#missions">Missions</a>
+      <a href="#bureau">Bureau</a>
+      <a href="#reglement">Règlement</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Nous contacter</a>
+    <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#accueil">Accueil</a>
+    <a href="#team">La Team</a>
+    <a href="#objectifs">Objectifs</a>
+    <a href="#missions">Missions</a>
+    <a href="#bureau">Bureau</a>
+    <a href="#reglement">Règlement</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="accueil">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-row"><span class="line"></span>Communauté · Culture · Événement · Solidarité</div>
+      <h1>Ensemble, on fait bouger <span class="accent">Sibassor</span> et bien au-delà.</h1>
+      <p class="tag">Team Mbossé 221 organise des événements culturels, sportifs et éducatifs, et agit concrètement pour la solidarité et le développement de nos communautés.</p>
+      <div class="hero-ctas">
+        <a href="#team" class="btn btn-solid">Découvrir la team</a>
+        <a href="#missions" class="btn btn-outline">Nos actions</a>
+        <a href="#contact" class="btn btn-ghost">Nous contacter →</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>6</b><span>domaines d'action</span></div>
+        <div class="stat"><b>15+</b><span>membres du bureau</span></div>
+        <div class="stat"><b>221</b><span>l'esprit qui nous unit</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="230" cy="230" r="210" fill="none" stroke="#2C7A5E" stroke-opacity="0.35" stroke-width="1.5"/>
+        <circle cx="230" cy="230" r="150" fill="none" stroke="#E7A83B" stroke-opacity="0.4" stroke-width="1.5"/>
+        <g>
+          <circle cx="230" cy="90" r="26" fill="#E7A83B"/>
+          <circle cx="357" cy="165" r="18" fill="#C1450F"/>
+          <circle cx="357" cy="300" r="22" fill="#2C7A5E"/>
+          <circle cx="230" cy="372" r="16" fill="#F1E4C2"/>
+          <circle cx="103" cy="300" r="24" fill="#C1450F"/>
+          <circle cx="103" cy="165" r="19" fill="#2C7A5E"/>
+        </g>
+        <path d="M230 90 L357 165 L357 300 L230 372 L103 300 L103 165 Z" fill="none" stroke="#F7F2E4" stroke-opacity="0.5" stroke-width="1.2"/>
+        <circle cx="230" cy="230" r="46" fill="#141915" stroke="#E7A83B" stroke-width="2"/>
+        <text x="230" y="238" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="26" fill="#E7A83B">221</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUI SOMMES-NOUS ================= -->
+<section class="about section-pad" id="team">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-copy">
+        <div class="kicker">Qui sommes-nous ?</div>
+        <h2 class="h-section" style="color:var(--ink); max-width:14ch;">Une team, plusieurs terrains d'engagement.</h2>
+        <p>La Team Mbossé 221 combine l'organisation d'événements culturels, sportifs et éducatifs avec des actions d'impact social pour soutenir les populations locales et nationales.</p>
+        <p>Ses objectifs et ses missions s'articulent autour de la cohésion communautaire, du développement local et de la solidarité.</p>
+        <p>La Team Mbossé 221 souhaite créer une dynamique collective capable de rassembler les jeunes, promouvoir les talents locaux et contribuer concrètement au développement de la communauté.</p>
+      </div>
+      <div class="about-visual">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="300" fill="#1E6F58"/>
+          <g opacity="0.9">
+            <circle cx="90" cy="230" r="60" fill="#141915"/>
+            <circle cx="200" cy="255" r="46" fill="#E7A83B"/>
+            <circle cx="300" cy="220" r="70" fill="#C1450F"/>
+            <circle cx="230" cy="90" r="36" fill="#F1E4C2" opacity="0.9"/>
+            <circle cx="345" cy="70" r="20" fill="#F1E4C2" opacity="0.5"/>
+            <circle cx="60" cy="70" r="16" fill="#F1E4C2" opacity="0.5"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="tier-label" style="margin-top:4rem;">Nos valeurs</div>
+    <div class="values-grid">
+      <div class="value-card">
+        <svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+        <h3>Respect</h3>
+        <p>Créer un environnement basé sur le respect de chaque personne.</p>
+      </div>
+      <div class="value-card">
+        <svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M2.5 21c0-3.6 2.7-6 5.5-6s5.5 2.4 5.5 6"/><path d="M15.5 15.5c2.2 0 4 1.9 4 5.5"/></svg>
+        <h3>Inclusion</h3>
+        <p>Permettre à chacun de participer et de contribuer.</p>
+      </div>
+      <div class="value-card">
+        <svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.35-9.5-9C.9 8.2 2.6 5 6 5c2 0 3.5 1.2 4 2.5C10.5 6.2 12 5 14 5c3.4 0 5.1 3.2 3.5 7-2.5 4.65-5.5 9-5.5 9z"/></svg>
+        <h3>Solidarité</h3>
+        <p>Mettre la force du collectif au service de la communauté.</p>
+      </div>
+      <div class="value-card">
+        <svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="8" r="2.6"/><circle cx="17" cy="8" r="2.6"/><path d="M2.5 20c0-3 2-5.2 4.5-5.2S11.5 17 11.5 20"/><path d="M12.5 20c0-3 2-5.2 4.5-5.2S21.5 17 21.5 20"/></svg>
+        <h3>Esprit d'équipe</h3>
+        <p>Travailler ensemble autour d'objectifs communs.</p>
+      </div>
+      <div class="value-card">
+        <svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.6 5.6L21 9.3l-4.5 4 1.3 6.2L12 16.8 6.2 19.5l1.3-6.2L3 9.3l6.4-.7z"/></svg>
+        <h3>Engagement</h3>
+        <p>Être responsable et impliqué dans les missions de la team.</p>
+      </div>
+      <div class="value-card">
+        <svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 00-4 10.5c.6.6 1 1.4 1 2.5h6c0-1.1.4-1.9 1-2.5A6 6 0 0012 3z"/></svg>
+        <h3>Créativité</h3>
+        <p>Imaginer des événements et des initiatives innovantes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OBJECTIFS ================= -->
+<section class="goals section-pad" id="objectifs">
+  <div class="wrap">
+    <div class="kicker">Nos objectifs principaux</div>
+    <h2 class="h-section">Ce que nous cherchons à construire, durablement.</h2>
+    <p class="lede">Quatre axes guident chacune de nos initiatives, de l'événement à l'action de terrain.</p>
+    <div class="goals-list">
+      <div class="goal-row">
+        <div class="goal-num">01</div>
+        <div>
+          <h3>Développement local</h3>
+          <p>Utiliser les bénéfices ou la visibilité des événements pour contribuer au financement de projets communautaires dans les domaines de l'éducation, de la santé et de l'environnement.</p>
+        </div>
+      </div>
+      <div class="goal-row">
+        <div class="goal-num">02</div>
+        <div>
+          <h3>Cohésion sociale</h3>
+          <p>Créer des espaces de rencontre et d'échange afin de renforcer la solidarité entre les membres d'une communauté ou d'un quartier.</p>
+        </div>
+      </div>
+      <div class="goal-row">
+        <div class="goal-num">03</div>
+        <div>
+          <h3>Culture et talents locaux</h3>
+          <p>Offrir une vitrine aux artistes, artisans et jeunes talents sénégalais à travers des manifestations publiques.</p>
+        </div>
+      </div>
+      <div class="goal-row">
+        <div class="goal-num">04</div>
+        <div>
+          <h3>Autonomisation</h3>
+          <p>Favoriser la participation économique et sociale des populations vulnérables, notamment les femmes et les jeunes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MISSIONS ================= -->
+<section class="missions section-pad" id="missions">
+  <div class="wrap">
+    <div class="kicker">Nos missions</div>
+    <h2 class="h-section">Deux volets, une même énergie.</h2>
+    <div class="mission-cols">
+      <div class="mission-col clay-top">
+        <h3>Volet événementiel</h3>
+        <ul>
+          <li>Organisation de manifestations</li>
+          <li>Festivals</li>
+          <li>Concerts</li>
+          <li>Tournois sportifs</li>
+          <li>Galas de bienfaisance</li>
+          <li>Foires artisanales</li>
+          <li>Mobilisation de ressources</li>
+          <li>Sponsoring</li>
+          <li>Billetterie</li>
+          <li>Vente de produits</li>
+          <li>Sensibilisation par la culture</li>
+        </ul>
+      </div>
+      <div class="mission-col teal-top">
+        <h3>Volet social &amp; solidaire</h3>
+        <div class="mission-sub">
+          <h4>Actions de solidarité directe</h4>
+          <p>Distribution de denrées alimentaires, fournitures scolaires et matériel médical aux familles dans le besoin.</p>
+        </div>
+        <div class="mission-sub">
+          <h4>Soutien à l'éducation et à l'enfance</h4>
+          <p>Organisation de cours de soutien, rénovation d'écoles et accompagnement des enfants en situation de vulnérabilité.</p>
+        </div>
+        <div class="mission-sub">
+          <h4>Insertion professionnelle</h4>
+          <p>Organisation d'ateliers et de formations dans différents métiers afin de contribuer à l'insertion professionnelle des jeunes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGLEMENT ================= -->
+<section class="rules section-pad" id="reglement">
+  <div class="wrap">
+    <div class="kicker">Règlement intérieur</div>
+    <h2 class="h-section">Le cadre qui fait tenir le collectif.</h2>
+    <p class="lede">Six chapitres, à consulter au besoin — dépliez la section qui vous intéresse.</p>
+
+    <div class="rules-list">
+      <details class="rule" open>
+        <summary>1. But et valeurs de la team
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="rule-body">
+          <p><strong>Objectif principal :</strong> organiser des événements de qualité (festifs, culturels, caritatifs, professionnels) tout en créant et maintenant un lien social fort au sein et en dehors de la communauté.</p>
+          <p><strong>Valeurs :</strong> respect, inclusion, solidarité, esprit d'équipe, engagement et créativité.</p>
+        </div>
+      </details>
+
+      <details class="rule">
+        <summary>2. Droits et devoirs des membres
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="rule-body">
+          <h4>Implication et ponctualité</h4>
+          <ul>
+            <li>La participation aux réunions de cadrage et de débriefing est obligatoire, sauf motif valable communiqué à l'avance.</li>
+            <li>Chaque membre doit respecter les délais fixés pour ses tâches.</li>
+            <li>La présence active lors des jours d'événements est requise : installation, animation et rangement.</li>
+          </ul>
+          <h4>Comportement et esprit d'équipe</h4>
+          <ul>
+            <li>Aucune discrimination, harcèlement, agressivité ou propos injurieux ne sera toléré.</li>
+            <li>Les membres doivent rester joignables sur les canaux officiels de la team.</li>
+            <li>Les messages importants doivent recevoir une réponse sous 24 heures.</li>
+            <li>Les conflits doivent être réglés de manière constructive et dans le calme.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="rule">
+        <summary>3. Organisation et gestion des événements
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="rule-body">
+          <h4>Avant l'événement</h4>
+          <p>Toute idée d'événement doit être validée par le Président et les membres de son bureau avant d'engager des démarches. Les tâches sont réparties selon les compétences et disponibilités : logistique, communication, budget, partenariat, organisation.</p>
+          <h4>Pendant l'événement</h4>
+          <p>Les membres représentent l'image de la team. Une attitude professionnelle, accueillante et dynamique est exigée face au public, aux prestataires et aux partenaires.</p>
+          <ul>
+            <li>La consommation d'alcool durant un créneau de service est strictement interdite.</li>
+            <li>L'utilisation de substances illicites est formellement interdite.</li>
+            <li>Chaque membre est responsable du matériel qui lui est confié.</li>
+            <li>Tout vol ou toute dégradation volontaire sera sanctionné.</li>
+          </ul>
+          <h4>Après l'événement</h4>
+          <p>Tous les membres présents participent au rangement et au nettoyage du site, sauf dispense exceptionnelle. Un débriefing doit être réalisé dans les 3 jours suivants avec : points forts, points faibles, bilan financier, améliorations à prévoir.</p>
+        </div>
+      </details>
+
+      <details class="rule">
+        <summary>4. Finances et matériel
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="rule-body">
+          <ul>
+            <li>Seul le trésorier est habilité à engager des dépenses au nom de la team.</li>
+            <li>Aucun remboursement de frais personnels sans justificatif et accord préalable.</li>
+            <li>Le matériel acheté par la team reste la propriété exclusive de la structure.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="rule">
+        <summary>5. Recrutement et départ
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="rule-body">
+          <h4>Intégration</h4>
+          <p>L'arrivée d'un nouveau membre est soumise à une adhésion avec achat d'une carte d'adhésion.</p>
+          <h4>Démission</h4>
+          <p>Tout membre souhaitant quitter la team doit informer les responsables par écrit et transmettre ses dossiers en cours afin de ne pas pénaliser les projets.</p>
+        </div>
+      </details>
+
+      <details class="rule">
+        <summary>6. Sanctions
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="rule-body">
+          <p>En cas de non-respect du règlement, les responsables ou le bureau peuvent décider des mesures suivantes :</p>
+          <ul>
+            <li>Avertissement verbal</li>
+            <li>Blâme écrit</li>
+            <li>Suspension temporaire des activités ou de l'accès aux événements</li>
+            <li>Exclusion définitive de la team</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BUREAU ================= -->
+<section class="bureau section-pad" id="bureau">
+  <div class="wrap">
+    <div class="kicker">Notre bureau</div>
+    <h2 class="h-section" style="color:var(--ink);">Les personnes qui portent la team.</h2>
+
+    <div class="tier-label">Présidence</div>
+    <div class="bureau-grid">
+      <div class="member-card"><div class="avatar" style="background:var(--clay);">MD</div><div><div class="name">Mamadou Diop Mbodji</div><div class="role">Président</div><div class="loc">Sibassor</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--teal);">FC</div><div><div class="name">Fatoumata Coulibaly</div><div class="role">Vice-Présidente</div><div class="loc">Sibassor</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--gold); color:var(--ink);">SF</div><div><div class="name">Seynabou Faye</div><div class="role">Adjointe</div><div class="loc">Sibassor</div></div></div>
+    </div>
+
+    <div class="tier-label">Secrétariat &amp; communication</div>
+    <div class="bureau-grid">
+      <div class="member-card"><div class="avatar" style="background:var(--teal);">AD</div><div><div class="name">Adama Diallo</div><div class="role">Secrétaire Général</div><div class="loc">Sibassor</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--gold); color:var(--ink);">MB</div><div><div class="name">Mamadou Bâ</div><div class="role">Adjoint</div><div class="loc">Kabatoki</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--clay);">MAB</div><div><div class="name">Mouhamadou Ahdy Ba</div><div class="role">Porte-parole &amp; Communication</div><div class="loc">Kabatoki</div></div></div>
+    </div>
+
+    <div class="tier-label">Finances</div>
+    <div class="bureau-grid">
+      <div class="member-card"><div class="avatar" style="background:var(--clay);">ASN</div><div><div class="name">Aïssatou Selly Niang</div><div class="role">Trésorière</div><div class="loc">Kabatoki</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--teal);">AMD</div><div><div class="name">Amdy Moustapha Diouf</div><div class="role">Adjoint</div><div class="loc">Sibassor</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--gold); color:var(--ink);">MD</div><div><div class="name">Malick Diouf</div><div class="role">Commissaire aux comptes</div><div class="loc">Sibassor</div></div></div>
+    </div>
+
+    <div class="tier-label">Organisation événementielle</div>
+    <div class="bureau-grid">
+      <div class="member-card"><div class="avatar" style="background:var(--clay);">SW</div><div><div class="name">Seydou Wane</div><div class="role">Président d'Organisation</div><div class="loc">Sibassor</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--teal);">BL</div><div><div class="name">Baïdy Ly</div><div class="role">Adjoint</div><div class="loc">Kabatoki</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--gold); color:var(--ink);">CD</div><div><div class="name">Coumba Diakhaté</div><div class="role">Adjointe</div><div class="loc">Sibassor</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--clay);">NN</div><div><div class="name">Ndiaga Matar Ndao</div><div class="role">Chef de projet événementiel</div><div class="loc">Kaolack</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--teal);">SN</div><div><div class="name">Sékou Ndiaye</div><div class="role">Adjoint</div><div class="loc">Sibassor</div></div></div>
+    </div>
+
+    <div class="tier-label">Ambassadeurs</div>
+    <div class="bureau-grid">
+      <div class="member-card"><div class="avatar" style="background:var(--gold); color:var(--ink);">CN</div><div><div class="name">Cheikh Ndao</div><div class="role">Ambassadeur</div><div class="loc">Sibassor</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--clay);">AN</div><div><div class="name">Alassane Ndour</div><div class="role">Ambassadeur</div><div class="loc">Sibassor</div></div></div>
+      <div class="member-card"><div class="avatar" style="background:var(--teal);">MD</div><div><div class="name">Mata Diallo</div><div class="role">Ambassadrice</div><div class="loc">Kabatoki</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERIE ================= -->
+<section class="gallery section-pad" id="galerie">
+  <div class="wrap">
+    <div class="kicker">Notre univers</div>
+    <h2 class="h-section">Ce qu'on vit, ce qu'on construit.</h2>
+    <div class="gallery-grid">
+      <div class="gallery-tile" style="background:linear-gradient(155deg,#2C7A5E,#141915);"><span>Événements</span></div>
+      <div class="gallery-tile" style="background:linear-gradient(155deg,#C1450F,#141915);"><span>Sport</span></div>
+      <div class="gallery-tile" style="background:linear-gradient(155deg,#E7A83B,#8a5c14);"><span>Culture</span></div>
+      <div class="gallery-tile" style="background:linear-gradient(155deg,#1E6F58,#141915);"><span>Solidarité</span></div>
+      <div class="gallery-tile" style="background:linear-gradient(155deg,#8f3308,#141915);"><span>Jeunesse</span></div>
+      <div class="gallery-tile" style="background:linear-gradient(155deg,#E7A83B,#C1450F);"><span>Actions communautaires</span></div>
+    </div>
+    <p class="gallery-note">Visuels d'illustration en attendant les premières photos officielles des événements de la team.</p>
+  </div>
+</section>
+
+<!-- ================= SOCIAL ================= -->
+<section class="social section-pad">
+  <div class="wrap social-inner">
+    <div>
+      <div class="kicker" style="color:rgba(247,242,228,0.75);">Suivez Team Mbossé 221</div>
+      <h2>Rejoignez la communauté en ligne.</h2>
+      <a href="https://www.tiktok.com/@mboss.221?_r=1&_t=ZS-99ZXv8ULxXo" target="_blank" rel="noopener" class="btn btn-dark" style="background:var(--ink); color:var(--ivory); margin-top:1.4rem;">
+        Suivre sur TikTok — @mboss.221
+      </a>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.tiktok.com/@mboss.221?_r=1&_t=ZS-99ZXv8ULxXo" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.7-.77-1.09-1.77-1.09-2.82h-3.05v13.44c0 1.5-1.22 2.72-2.72 2.72a2.72 2.72 0 01-2.72-2.72 2.72 2.72 0 012.72-2.72c.3 0 .58.05.85.13V10.7a5.79 5.79 0 00-.85-.06A5.78 5.78 0 003 16.42a5.78 5.78 0 005.78 5.78 5.78 5.78 0 005.78-5.78V9.01a7.5 7.5 0 004.39 1.41V7.37c-.98 0-1.9-.32-2.65-.88a4.85 4.85 0 01-.7-.67z"/></svg>
+      </a>
+      <a href="#" class="soon" aria-label="Instagram (bientôt)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="#" class="soon" aria-label="Facebook (bientôt)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H8v3h3v6h3v-6h3l1-3h-4V9c0-.55.45-1 1-1z"/></svg>
+      </a>
+      <a href="#" class="soon" aria-label="WhatsApp (bientôt)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.66 15L2 22l5.2-1.36A10 10 0 1012 2zm0 18a8 8 0 01-4.07-1.11l-.29-.17-3.02.79.8-2.94-.19-.3A8 8 0 1112 20zm4.4-5.6c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact section-pad" id="contact">
+  <div class="wrap">
+    <div class="kicker">Rejoindre / contacter la team</div>
+    <h2 class="h-section">Devenez membre, partenaire, ou dites-nous bonjour.</h2>
+    <div class="contact-grid" style="margin-top:clamp(2.5rem,5vw,3.5rem);">
+      <div class="contact-info">
+        <div class="item">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.13.9.36 1.8.68 2.6a2 2 0 01-.45 2.1L8.1 9.6a16 16 0 006.3 6.3l1.2-1.2a2 2 0 012.1-.45c.85.32 1.72.55 2.6.68A2 2 0 0122 16.9z"/></svg></div>
+          <div><h4>Téléphone / WhatsApp</h4><p>À configurer — ajoutez ici le numéro officiel de la team.</p></div>
+        </div>
+        <div class="item">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+          <div><h4>Email</h4><p>contact@teammbosse221.sn <span style="opacity:.6;">(à confirmer)</span></p></div>
+        </div>
+        <div class="item">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h4>Zone d'action</h4><p>Sibassor · Kabatoki · Kaolack, Sénégal</p></div>
+        </div>
+        <div class="item">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+          <div><h4>Vous voulez proposer un partenariat ?</h4><p>Précisez-le dans l'objet du formulaire — le bureau vous répond sous peu.</p></div>
+        </div>
+      </div>
+
+      <form class="cform" id="contactForm">
+        <div class="form-row">
+          <div class="field"><label for="nom">Nom</label><input id="nom" required></div>
+          <div class="field"><label for="prenom">Prénom</label><input id="prenom" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="tel">Téléphone</label><input id="tel" type="tel" required></div>
+          <div class="field"><label for="mail">Email</label><input id="mail" type="email"></div>
+        </div>
+        <div class="field">
+          <label for="objet">Objet</label>
+          <select id="objet">
+            <option>Devenir membre</option>
+            <option>Proposer un partenariat</option>
+            <option>Demande d'information</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="field"><label for="msg">Message</label><textarea id="msg" required></textarea></div>
+        <button type="submit" class="btn btn-solid">Envoyer la demande</button>
+        <p class="form-note">La demande s'ouvre dans WhatsApp, pré-remplie, une fois le numéro de la team configuré.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QR CODE ================= -->
+<section class="qr-section section-pad">
+  <div class="wrap">
+    <div class="kicker">Scannez pour découvrir Team Mbossé 221</div>
+    <div class="qr-box" style="margin-top:2rem;">
+      <div id="qr-canvas-wrap"></div>
+      <div>
+        <h3 style="font-size:1.4rem; margin-bottom:0.6rem;">Un QR code prêt pour vos supports</h3>
+        <p style="color:rgba(20,25,21,0.7); max-width:44ch;">Ce QR code pointe automatiquement vers l'adresse de cette page une fois publiée. Utilisez-le sur vos affiches, flyers, cartes de membre, invitations, t-shirts ou banderoles.</p>
+        <div class="qr-actions">
+          <button class="btn btn-dark" id="downloadQr">Télécharger en PNG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="wordmark"><span class="dot"></span>TEAM MBOSSÉ 221</div>
+        <p class="tagline">Ensemble pour la culture, l'événementiel et l'impact social.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h5>Navigation</h5>
+          <a href="#accueil">Accueil</a>
+          <a href="#team">La Team</a>
+          <a href="#objectifs">Objectifs</a>
+          <a href="#missions">Missions</a>
+        </div>
+        <div>
+          <h5>Ressources</h5>
+          <a href="#bureau">Bureau</a>
+          <a href="#reglement">Règlement</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Team Mbossé 221 — Tous droits réservés.</span>
+      <span>Sibassor · Kabatoki · Sénégal</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/221000000000" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp" id="waFloat">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.66 15L2 22l5.2-1.36A10 10 0 1012 2zm0 18a8 8 0 01-4.07-1.11l-.29-.17-3.02.79.8-2.94-.19-.3A8 8 0 1112 20zm4.4-5.6c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+</a>
+
+<script>
+  // mobile nav
+  var burger = document.getElementById('burgerBtn');
+  var panel = document.getElementById('mobilePanel');
+  burger.addEventListener('click', function(){
+    panel.classList.toggle('open');
+  });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ panel.classList.remove('open'); });
+  });
+
+  // QR code — points to this page's own address
+  try {
+    var qrTarget = window.location.href.indexOf('http') === 0 ? window.location.href : 'https://teammbosse221.sn';
+    var canvas = document.createElement('canvas');
+    document.getElementById('qr-canvas-wrap').appendChild(canvas);
+    if (window.QRCode) {
+      QRCode.toCanvas(canvas, qrTarget, { width: 150, margin: 1, color: { dark:'#141915', light:'#FFFFFF' } }, function(err){
+        if (err) console.error(err);
+      });
+    }
+    document.getElementById('downloadQr').addEventListener('click', function(){
+      var link = document.createElement('a');
+      link.download = 'team-mbosse-221-qr.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  } catch(e) { console.error('QR generation failed', e); }
+
+  // contact form -> whatsapp deep link (placeholder number, to be configured)
+  var form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nom = document.getElementById('nom').value;
+    var prenom = document.getElementById('prenom').value;
+    var tel = document.getElementById('tel').value;
+    var objet = document.getElementById('objet').value;
+    var msg = document.getElementById('msg').value;
+    var text = 'Bonjour Team Mbosse 221,%0A%0ANom: ' + encodeURIComponent(nom) +
+      '%0APrenom: ' + encodeURIComponent(prenom) +
+      '%0ATelephone: ' + encodeURIComponent(tel) +
+      '%0AObjet: ' + encodeURIComponent(objet) +
+      '%0AMessage: ' + encodeURIComponent(msg);
+    window.open('https://wa.me/221000000000?text=' + text, '_blank');
+  });
+</script>
+</body>
+</html>
